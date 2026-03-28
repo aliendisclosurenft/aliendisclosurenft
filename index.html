@@ -11,11 +11,9 @@
             --light-purple: #df80ff;
             --text-white: #ffffff;
             --glass-bg: rgba(0, 0, 0, 0.95);
-            /* লাল কালার সরিয়ে লাইটিং পার্পল করা হয়েছে */
             --accent-purple: #d633ff; 
         }
 
-        /* --- আপনার মূল স্টাইলগুলো অপরিবর্তিত রাখা হলো --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000; color: var(--text-white); font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
         #bg-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -2; object-fit: cover; filter: brightness(0.4) contrast(1.1); }
@@ -34,48 +32,26 @@
         .btn-collab { background: rgba(255, 255, 255, 0.05); color: #fff; border-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); }
         .btn:hover { transform: scale(1.03); box-shadow: 0 0 30px var(--glow-purple); }
 
-        /* --- MODAL & BUTTON ENHANCEMENTS --- */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
         .modal-content { background: #0a0a0a; width: 90%; max-width: 450px; padding: 30px; border-radius: 20px; border: 1px solid var(--glow-purple); position: relative; text-align: center; }
         .step-indicator { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
         .step-dot { width: 35px; height: 35px; border-radius: 50%; background: #222; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-size: 14px; color: #666; border: 1px solid #333; }
-        
         .step-dot.active { background: var(--accent-purple); color: white; border-color: var(--accent-purple); box-shadow: 0 0 15px var(--accent-purple); }
         .step-dot.completed { background: var(--accent-purple); color: white; }
-
         .step-container { display: none; }
         .step-container.active { display: block; }
         .modal-title { font-family: 'Orbitron', sans-serif; margin-bottom: 15px; font-size: 1.5rem; }
         .modal-desc { color: #888; margin-bottom: 25px; font-size: 14px; }
-
-        .action-btn { 
-            background: transparent; border: 1px solid var(--glow-purple); color: white; padding: 12px; width: 100%; border-radius: 8px; margin-bottom: 15px; 
-            display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-family: 'Orbitron', sans-serif; transition: 0.3s;
-        }
+        .action-btn { background: transparent; border: 1px solid var(--glow-purple); color: white; padding: 12px; width: 100%; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-family: 'Orbitron', sans-serif; transition: 0.3s; }
         .action-btn:hover { background: rgba(188, 19, 254, 0.1); box-shadow: 0 0 10px var(--glow-purple); }
         .action-btn.clicked { border-color: #00ff88; color: #00ff88; }
-
-        .next-btn { 
-            background: var(--accent-purple); color: white; border: none; padding: 16px; width: 100%; border-radius: 10px; 
-            font-family: 'Orbitron', sans-serif; font-weight: bold; cursor: not-allowed; opacity: 0.3; transition: 0.5s; 
-            position: relative; overflow: hidden;
-        }
-
-        .next-btn.enabled { 
-            opacity: 1; cursor: pointer; box-shadow: 0 0 20px var(--accent-purple); 
-        }
-
-        .next-btn.enabled::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: lighting 3s infinite;
-        }
+        .next-btn { background: var(--accent-purple); color: white; border: none; padding: 16px; width: 100%; border-radius: 10px; font-family: 'Orbitron', sans-serif; font-weight: bold; cursor: not-allowed; opacity: 0.3; transition: 0.5s; position: relative; overflow: hidden; }
+        .next-btn.enabled { opacity: 1; cursor: pointer; box-shadow: 0 0 20px var(--accent-purple); }
+        .next-btn.enabled::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); animation: lighting 3s infinite; }
         @keyframes lighting { 0% { left: -100%; } 100% { left: 100%; } }
-
         input, textarea { width: 100%; background: #111; border: 1px solid #333; padding: 15px; color: white; border-radius: 8px; margin-bottom: 15px; font-family: 'Rajdhani', sans-serif; outline: none; transition: 0.3s; }
         input:focus { border-color: var(--glow-purple); }
         .checkbox-area { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; justify-content: center; color: #ccc; cursor: pointer; }
-
         .section-header { font-family: 'Orbitron', sans-serif; text-align: center; margin: 80px 0 40px; font-size: 1.8rem; color: var(--glow-purple); text-transform: uppercase; letter-spacing: 3px; }
         .roadmap-grid { display: grid; gap: 20px; }
         .roadmap-card { background: linear-gradient(135deg, rgba(30, 10, 50, 0.8), rgba(0, 0, 0, 0.9)); padding: 30px; border-radius: 20px; border-right: 4px solid var(--glow-purple); position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
@@ -85,10 +61,13 @@
         .roadmap-card li::before { content: "✦"; position: absolute; left: 0; color: var(--glow-purple); }
         .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 60px; }
         .gallery img { width: 100%; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .verification-text { text-align: center; max-width: 600px; margin: 100px auto 20px; padding: 20px; color: #888; font-size: 14px; line-height: 1.6; border-top: 1px solid #222; }
+        
+        /* নতুন আকর্ষণীয় টেক্সট ডিজাইন */
+        .verification-text { text-align: center; max-width: 750px; margin: 100px auto 20px; padding: 40px; color: #fff; font-size: 18px; font-family: 'Orbitron', sans-serif; line-height: 1.6; border: 1px solid var(--glow-purple); border-radius: 20px; background: rgba(188, 19, 254, 0.05); box-shadow: inset 0 0 20px rgba(188, 19, 254, 0.2), 0 0 30px rgba(0,0,0,0.5); position: relative; }
+        .verification-text::before { content: "TOP SECRET"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--glow-purple); color: #fff; padding: 2px 15px; font-size: 10px; border-radius: 5px; }
+
         .footer-x-btn { display: block; max-width: 250px; margin: 0 auto 50px; background: #fff; color: #000; text-align: center; padding: 15px; border-radius: 50px; font-family: 'Orbitron', sans-serif; text-decoration: none; font-weight: bold; transition: 0.3s; }
         footer { text-align: center; padding: 40px; color: #444; font-size: 12px; }
-
         @media (min-width: 768px) { .gallery { grid-template-columns: repeat(3, 1fr); } .roadmap-grid { grid-template-columns: repeat(3, 1fr); } }
     </style>
 </head>
@@ -105,7 +84,7 @@
 
     <div class="container">
         <section class="hero">
-            <img src="https://i.ibb.co.com/PGtY3m06/file-000000002ba0720897be0273cac622b1.png://i.ibb.co.com/sdyTtqSZ/17.png" alt="Main Specimen" class="main-nft">
+            <img src="https://i.ibb.co.com/PGtY3m06/file-000000002ba0720897be0273cac622b1.png" alt="Main Specimen" class="main-nft">
             
             <div class="gtd-section">
                 <div class="gtd-badge">GTD FREE MINT</div>
@@ -136,58 +115,50 @@
         </div>
 
         <div class="verification-text">
-            To ensure the security of our community and identify genuine investigators, a minimal mint fee of 0.0005 ETH will be applied to filter out bot accounts and protect the ecosystem for real members.
+            "The truth is no longer hidden in the shadows. Join the elite squad of interstellar investigators and secure your legacy in the first-ever galactic disclosure event. Your journey beyond the stars begins here."
         </div>
 
         <a href="https://x.com/aliendisclosur" class="footer-x-btn">FOLLOW ON X</a>
-
         <footer>© 2026 ALIEN DISCLOSURE. ALL SIGNALS VERIFIED.</footer>
     </div>
 
+    <!-- MODAL SECTION -->
     <div id="applicationModal" class="modal">
         <div class="modal-content">
             <div id="stepDots" class="step-indicator"></div>
-
+            
             <div id="gtdSteps">
                 <div class="step-container active" id="gtd-step-1">
                     <h2 class="modal-title">Follow Us on X</h2>
-                    <p class="modal-desc">First, follow @aliendisclosur & Admin to be eligible.</p>
+                    <p class="modal-desc">Follow @aliendisclosur & @NLNAHAL.</p>
                     <button class="action-btn" id="btn-x-1" onclick="handleVerifyClick('x1', 'https://x.com/aliendisclosur', 'btn-x-1')">Open @aliendisclosur</button>
-                    <button class="action-btn" id="btn-x-2" onclick="handleVerifyClick('x2', 'https://x.com/aliendisclosur', 'btn-x-2')">Open Admin Account</button>
+                    <button class="action-btn" id="btn-x-2" onclick="handleVerifyClick('x2', 'https://x.com/nlnahal', 'btn-x-2')">Open @NLNAHAL</button>
                     <div class="checkbox-area" onclick="toggleCheckbox('gtd-check-1', 'gtd', 1)">
                         <input type="checkbox" id="gtd-check-1" style="pointer-events:none;">
                         <span>I am following both accounts</span>
                     </div>
                     <button class="next-btn" id="gtd-next-1" onclick="nextStep('gtd', 2)">Next →</button>
                 </div>
-
                 <div class="step-container" id="gtd-step-2">
                     <h2 class="modal-title">Your X Handle</h2>
-                    <p class="modal-desc">Enter your Twitter / X username.</p>
                     <input type="text" id="gtd-input-handle" placeholder="@YourHandle" oninput="toggleNext('gtd', 2)">
                     <button class="next-btn" id="gtd-next-2" onclick="nextStep('gtd', 3)">Next →</button>
                 </div>
-
                 <div class="step-container" id="gtd-step-3">
                     <h2 class="modal-title">Wallet Address</h2>
-                    <p class="modal-desc">Enter your ETH-compatible wallet address.</p>
                     <input type="text" id="gtd-input-wallet" placeholder="0x..." oninput="toggleNext('gtd', 3)">
                     <button class="next-btn" id="gtd-next-3" onclick="nextStep('gtd', 4)">Next →</button>
                 </div>
-
                 <div class="step-container" id="gtd-step-4">
                     <h2 class="modal-title">Quote the Tweet</h2>
-                    <p class="modal-desc">Quote our pinned tweet, then paste link.</p>
-                    <button class="action-btn" id="btn-quote" onclick="handleVerifyClick('q1', 'https://x.com/aliendisclosur', 'btn-quote')">Open Tweet to Quote</button>
-                    <input type="text" id="gtd-input-quote" placeholder="https://x.com/aliendisclosur" oninput="toggleNext('gtd', 4)">
+                    <button class="action-btn" id="btn-quote" onclick="handleVerifyClick('q1', 'https://x.com/aliendisclosur/status/2036035777696825458?s=20', 'btn-quote')">Open Tweet to Quote</button>
+                    <input type="text" id="gtd-input-quote" placeholder="Paste link here" oninput="toggleNext('gtd', 4)">
                     <button class="next-btn" id="gtd-next-4" onclick="nextStep('gtd', 5)">Next →</button>
                 </div>
-
                 <div class="step-container" id="gtd-step-5">
                     <h2 class="modal-title">Reply with Wallet</h2>
-                    <p class="modal-desc">Reply to the tweet with your wallet address.</p>
-                    <button class="action-btn" id="btn-reply" onclick="handleVerifyClick('r1', 'https://x.com/aliendisclosur', 'btn-reply')">Open Tweet to Reply</button>
-                    <input type="text" id="gtd-input-reply" placeholder="https://x.com/aliendisclosur" oninput="toggleNext('gtd', 5)">
+                    <button class="action-btn" id="btn-reply" onclick="handleVerifyClick('r1', 'https://x.com/aliendisclosur/status/2036035777696825458?s=20', 'btn-reply')">Open Tweet to Reply</button>
+                    <input type="text" id="gtd-input-reply" placeholder="Paste link here" oninput="toggleNext('gtd', 5)">
                     <button class="next-btn" id="gtd-next-5" onclick="submitData('gtd')">Submit Application</button>
                 </div>
             </div>
@@ -195,39 +166,35 @@
             <div id="collabSteps" style="display:none;">
                  <div class="step-container active" id="collab-step-1">
                     <h2 class="modal-title">Verification</h2>
-                    <p class="modal-desc">Follow @aliendisclosur and Admin.</p>
-                    <button class="action-btn" id="btn-c1" onclick="handleVerifyClick('c1', 'https://x.com/aliendisclosur', 'btn-c1')">Follow Official</button>
-                    <button class="action-btn" id="btn-c2" onclick="handleVerifyClick('c2', 'https://x.com/aliendisclosur', 'btn-c2')">Follow Admin</button>
+                    <button class="action-btn" id="btn-c1" onclick="handleVerifyClick('c1', 'https://x.com/aliendisclosur', 'btn-c1')">Follow @AlienDisclosure</button>
+                    <button class="action-btn" id="btn-c2" onclick="handleVerifyClick('c2', 'https://x.com/nlnahal', 'btn-c2')">Follow @NLNAHAL</button>
                     <input type="text" id="collab-input-handle" placeholder="Your X Username" oninput="toggleNext('collab', 1)">
                     <button class="next-btn" id="collab-next-1" onclick="nextStep('collab', 2)">Next →</button>
                  </div>
                  <div class="step-container" id="collab-step-2">
                     <h2 class="modal-title">Why GTD?</h2>
-                    <p class="modal-desc">Why do you want a GTD spot? (Min 100 words)</p>
-                    <textarea id="collab-input-why" rows="4" placeholder="Type here..." oninput="toggleNext('collab', 2)"></textarea>
+                    <textarea id="collab-input-why" rows="4" placeholder="Minimum 100 words..." oninput="toggleNext('collab', 2)"></textarea>
                     <button class="next-btn" id="collab-next-2" onclick="nextStep('collab', 3)">Next →</button>
                  </div>
                  <div class="step-container" id="collab-step-3">
                     <h2 class="modal-title">Quantity?</h2>
-                    <p class="modal-desc">How many GTD spots are you requesting?</p>
                     <input type="number" id="collab-input-qty" placeholder="Amount" oninput="toggleNext('collab', 3)">
                     <button class="next-btn" id="collab-next-3" onclick="submitData('collab')">Submit Collab</button>
                  </div>
             </div>
 
             <div id="successStep" class="step-container">
-                <div class="success-icon">✔</div>
-                <h2 class="modal-title">Congratulations!</h2>
-                <p class="modal-desc" id="successMsg">Your application has been received. Mint date: 25th March.</p>
+                <div style="font-size: 50px; color: #00ff88; margin-bottom: 20px;">✔</div>
+                <h2 class="modal-title">CONGRATULATIONS!</h2>
+                <p class="modal-desc" id="successMsg">Signal transmitted successfully. Verification in progress. Mint date: 25th March.</p>
                 <button class="footer-x-btn" onclick="window.location.reload()">Return to Portal</button>
             </div>
         </div>
     </div>
 
     <script>
-        // --- GOOGLE SHEET CONFIGURATION ---
-        // এখানে আপনার Deployment URL বসাবেন
-        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+        // --- আপনার Google Apps Script এর Deployment URL নিচে দিন ---
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb8B4yg8HxUK84X_8IwRXKDdurCXBopyEobnALDPCZ36MNPSVedj00Ck-QYm1yUgq2/exec";
 
         let verificationTracker = {};
 
@@ -252,7 +219,6 @@
             window.open(url, '_blank');
             verificationTracker[id] = true;
             document.getElementById(btnId).classList.add('clicked');
-            document.getElementById(btnId).innerText += " (Verified)";
         }
 
         function toggleCheckbox(checkId, type, step) {
@@ -261,33 +227,30 @@
                 check.checked = !check.checked;
                 toggleNext(type, step);
             } else {
-                alert("Please open both X accounts first to verify!");
+                alert("Please open both X profiles first!");
             }
         }
 
         function toggleNext(type, step) {
             const btn = document.getElementById(`${type}-next-${step}`);
             let isValid = false;
-
             if(type === 'gtd') {
-                if(step === 1) isValid = document.getElementById('gtd-check-1').checked && verificationTracker['x1'] && verificationTracker['x2'];
-                if(step === 2) isValid = document.getElementById('gtd-input-handle').value.startsWith('@') && document.getElementById('gtd-input-handle').value.length > 3;
-                if(step === 3) isValid = document.getElementById('gtd-input-wallet').value.startsWith('0x') && document.getElementById('gtd-input-wallet').value.length === 42;
-                if(step === 4) isValid = document.getElementById('gtd-input-quote').value.includes('x.com') && verificationTracker['q1'];
-                if(step === 5) isValid = document.getElementById('gtd-input-reply').value.includes('x.com') && verificationTracker['r1'];
+                if(step === 1) isValid = document.getElementById('gtd-check-1').checked;
+                if(step === 2) isValid = document.getElementById('gtd-input-handle').value.length > 3;
+                if(step === 3) isValid = document.getElementById('gtd-input-wallet').value.length > 20;
+                if(step === 4) isValid = document.getElementById('gtd-input-quote').value.includes('http');
+                if(step === 5) isValid = document.getElementById('gtd-input-reply').value.includes('http');
             } else {
-                if(step === 1) isValid = document.getElementById('collab-input-handle').value.length > 2 && verificationTracker['c1'] && verificationTracker['c2'];
-                if(step === 2) isValid = document.getElementById('collab-input-why').value.trim().split(/\s+/).length >= 100;
+                if(step === 1) isValid = document.getElementById('collab-input-handle').value.length > 2;
+                if(step === 2) isValid = document.getElementById('collab-input-why').value.length > 5;
                 if(step === 3) isValid = document.getElementById('collab-input-qty').value > 0;
             }
-
             if(isValid) btn.classList.add('enabled');
             else btn.classList.remove('enabled');
         }
 
         function nextStep(type, next) {
             const current = next - 1;
-            if(!document.getElementById(`${type}-next-${current}`).classList.contains('enabled')) return;
             document.getElementById(`${type}-step-${current}`).classList.remove('active');
             document.getElementById(`${type}-step-${next}`).classList.add('active');
             document.getElementById(`dot-${current}`).classList.add('completed');
@@ -296,38 +259,35 @@
 
         function submitData(type) {
             const btn = document.getElementById(`${type}-next-${type==='gtd'?5:3}`);
-            if(!btn.classList.contains('enabled')) return;
-            
-            btn.innerText = "Processing...";
+            btn.innerText = "Transmitting Signal...";
             btn.classList.remove('enabled');
-
-            let formData = new FormData();
-            formData.append('sheetName', type.toUpperCase()); // GTD অথবা COLLAB আলাদা শিটে যাবে
+            
+            let data = { type: type.toUpperCase() };
 
             if(type === 'gtd') {
-                formData.append('handle', document.getElementById('gtd-input-handle').value);
-                formData.append('wallet', document.getElementById('gtd-input-wallet').value);
-                formData.append('quoteLink', document.getElementById('gtd-input-quote').value);
-                formData.append('replyLink', document.getElementById('gtd-input-reply').value);
+                data.handle = document.getElementById('gtd-input-handle').value;
+                data.wallet = document.getElementById('gtd-input-wallet').value;
+                data.quote = document.getElementById('gtd-input-quote').value;
+                data.reply = document.getElementById('gtd-input-reply').value;
             } else {
-                formData.append('handle', document.getElementById('collab-input-handle').value);
-                formData.append('reason', document.getElementById('collab-input-why').value);
-                formData.append('quantity', document.getElementById('collab-input-qty').value);
+                data.handle = document.getElementById('collab-input-handle').value;
+                data.reason = document.getElementById('collab-input-why').value;
+                data.qty = document.getElementById('collab-input-qty').value;
             }
 
-            fetch(SCRIPT_URL, { method: 'POST', body: formData })
-            .then(response => {
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                body: JSON.stringify(data)
+            }).then(() => {
                 document.getElementById('gtdSteps').style.display = 'none';
                 document.getElementById('collabSteps').style.display = 'none';
                 document.getElementById('stepDots').style.display = 'none';
                 document.getElementById('successStep').classList.add('active');
-                if(type === 'collab') {
-                    document.getElementById('successMsg').innerText = "Application received. Contact @Admin on X for further details.";
-                }
-            })
-            .catch(error => {
-                alert("Error! Submission failed.");
-                btn.innerText = "Retry Submit";
+            }).catch(e => {
+                alert("Transmission failed. Please check connection.");
+                btn.innerText = "Retry Submission";
                 btn.classList.add('enabled');
             });
         }
