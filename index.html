@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alien Disclosure GTD Official</title>
+    <title>Alien Disclosure GTD Official Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,40 +18,33 @@
         body { background: #000; color: var(--text-white); font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
         #bg-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -2; object-fit: cover; filter: brightness(0.4) contrast(1.1); }
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 10%, #000 100%); z-index: -1; }
-        header { text-align: center; padding: 40px 20px 0; position: relative; }
-        
-        /* Collab Sticker Style */
-        .collab-sticker {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(188, 19, 254, 0.2);
-            padding: 8px 15px;
-            border-radius: 50px;
-            border: 1px solid var(--glow-purple);
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 10px;
-            backdrop-filter: blur(5px);
-            transition: 0.3s;
-            z-index: 100;
-        }
-        .collab-sticker:hover { transform: scale(1.1); background: var(--glow-purple); }
-
+        header { text-align: center; padding: 40px 20px 0; }
         .main-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 6vw, 3.5rem); letter-spacing: 8px; background: linear-gradient(180deg, #fff 20%, var(--glow-purple) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(188, 19, 254, 0.5); font-weight: 900; }
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         .hero { text-align: center; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
         .main-nft { width: 300px; height: 300px; border-radius: 25px; margin-bottom: 25px; box-shadow: 0 0 40px var(--glow-purple); border: 2px solid rgba(188, 19, 254, 0.5); object-fit: cover; animation: float 5s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .gtd-section { margin-bottom: 20px; }
         .gtd-badge { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #fff; text-shadow: 0 0 15px var(--glow-purple); font-weight: 900; margin-bottom: 5px; }
         .mint-info { font-size: 14px; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px;}
+        
+        /* New Styles for UI requested */
+        .collab-sticker {
+            position: fixed; top: 20px; right: 20px; z-index: 100;
+            background: rgba(188, 19, 254, 0.2); border: 1px dashed var(--glow-purple);
+            padding: 8px 15px; border-radius: 50px; cursor: pointer;
+            text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 10px;
+            color: #fff; backdrop-filter: blur(5px); transition: 0.3s;
+        }
+        .collab-sticker:hover { background: var(--glow-purple); }
+
         .btn-box { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 350px; }
         .btn { font-family: 'Orbitron', sans-serif; text-decoration: none; text-align: center; padding: 18px; border-radius: 12px; font-weight: 700; transition: 0.4s; text-transform: uppercase; font-size: 13px; border: 1px solid transparent; cursor: pointer; }
         .btn-apply { background: var(--glow-purple); color: #fff; box-shadow: 0 0 20px rgba(188, 19, 254, 0.4); }
-        .btn-mint { background: rgba(255, 255, 255, 0.05); color: #fff; border-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.2; }
-        .timer-text { font-size: 10px; color: var(--light-purple); margin-top: 5px; }
+        .btn-mint { background: rgba(255, 255, 255, 0.05); color: #fff; border-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); }
         .btn:hover { transform: scale(1.03); box-shadow: 0 0 30px var(--glow-purple); }
+        
+        .timer-display { font-size: 10px; display: block; margin-top: 5px; color: var(--light-purple); }
 
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
         .modal-content { background: #0a0a0a; width: 90%; max-width: 450px; padding: 30px; border-radius: 20px; border: 1px solid var(--glow-purple); position: relative; text-align: center; }
@@ -72,20 +65,20 @@
         .checkbox-area { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; justify-content: center; color: #ccc; cursor: pointer; }
         .section-header { font-family: 'Orbitron', sans-serif; text-align: center; margin: 80px 0 40px; font-size: 1.8rem; color: var(--glow-purple); text-transform: uppercase; letter-spacing: 3px; }
         .roadmap-grid { display: grid; gap: 20px; }
-        .roadmap-card { background: linear-gradient(135deg, rgba(30, 10, 50, 0.8), rgba(0, 0, 0, 0.9)); padding: 30px; border-radius: 20px; border-right: 4px solid var(--glow-purple); position: relative; }
+        .roadmap-card { background: linear-gradient(135deg, rgba(30, 10, 50, 0.8), rgba(0, 0, 0, 0.9)); padding: 30px; border-radius: 20px; border-right: 4px solid var(--glow-purple); position: relative; overflow: hidden; }
         .roadmap-card h3 { font-family: 'Orbitron', sans-serif; color: var(--glow-purple); margin-bottom: 15px; }
-        .roadmap-card ul { list-style: none; color: #ccc; }
-        .roadmap-card li::before { content: "✦"; margin-right: 10px; color: var(--glow-purple); }
+        .roadmap-card li { margin-bottom: 10px; list-style: none; padding-left: 20px; position: relative; color: #ccc;}
+        .roadmap-card li::before { content: "✦"; position: absolute; left: 0; color: var(--glow-purple); }
         .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 60px; }
         .gallery img { width: 100%; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .verification-text { text-align: center; max-width: 600px; margin: 100px auto 20px; padding: 20px; color: #888; font-size: 14px; line-height: 1.6; border-top: 1px solid #222; }
-        .footer-x-btn { display: block; max-width: 250px; margin: 0 auto 50px; background: #fff; color: #000; text-align: center; padding: 15px; border-radius: 50px; font-family: 'Orbitron', sans-serif; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .footer-x-btn { display: block; max-width: 250px; margin: 0 auto 50px; background: #fff; color: #000; text-align: center; padding: 15px; border-radius: 50px; font-family: 'Orbitron', sans-serif; text-decoration: none; font-weight: bold; }
         footer { text-align: center; padding: 40px; color: #444; font-size: 12px; }
-
         @media (min-width: 768px) { .gallery { grid-template-columns: repeat(3, 1fr); } .roadmap-grid { grid-template-columns: repeat(3, 1fr); } }
     </style>
 </head>
 <body>
+
+    <a href="https://x.com/nlnahal" class="collab-sticker">Apply Collab</a>
 
     <video autoplay muted loop id="bg-video">
         <source src="https://cdn.pixabay.com/video/2023/05/02/161334-823146699_large.mp4" type="video/mp4">
@@ -93,7 +86,6 @@
     <div class="overlay"></div>
 
     <header>
-        <a href="https://x.com/nlnahal" target="_blank" class="collab-sticker">APPLY COLLAB</a>
         <div class="main-title">ALIEN DISCLOSURE</div>
     </header>
 
@@ -108,9 +100,9 @@
 
             <div class="btn-box">
                 <button onclick="openModal('gtd')" class="btn btn-apply">Apply GTD Access</button>
-                <button onclick="alert('Mint will start on 4 April at 14:00 UTC')" class="btn btn-mint">
-                    MINT NOW
-                    <span id="countdown" class="timer-text">Loading Timer...</span>
+                <button onclick="alert('Mint will be live on 4 April, 14:00 UTC')" class="btn btn-mint">
+                    Mint NFT
+                    <span id="countdown" class="timer-display">Loading Signal...</span>
                 </button>
             </div>
         </section>
@@ -132,130 +124,125 @@
             <div class="roadmap-card"><h3>PHASE 03</h3><ul><li>Deep-Lore Physical Artifacts</li><li>Expanding the Disclosure Universe</li></ul></div>
         </div>
 
-        <div class="verification-text">
-            The truth is no longer hidden in the shadows. Join the elite squad of interstellar investigators and secure your legacy in the first-ever galactic disclosure event. Your journey beyond the stars begins here.
-        </div>
-
         <a href="https://x.com/aliendisclosur" class="footer-x-btn">FOLLOW ON X</a>
         <footer>© 2026 ALIEN DISCLOSURE. ALL SIGNALS VERIFIED.</footer>
     </div>
 
-    <!-- MODAL -->
     <div id="applicationModal" class="modal">
         <div class="modal-content">
             <div id="stepDots" class="step-indicator"></div>
             <div id="gtdSteps">
                 <div class="step-container active" id="gtd-step-1">
                     <h2 class="modal-title">Follow Us on X</h2>
-                    <p class="modal-desc">First, follow @aliendisclosur & @NLNAHAL to be eligible.</p>
-                    <button class="action-btn" id="btn-x-1" onclick="handleVerifyClick('x1', 'https://x.com/aliendisclosur', 'btn-x-1')">Open @aliendisclosur</button>
-                    <button class="action-btn" id="btn-x-2" onclick="handleVerifyClick('x2', 'https://x.com/aliendisclosur', 'btn-x-2')">Open @NLNAHAL</button>
-                    <div class="checkbox-area" onclick="toggleCheckbox('gtd-check-1', 'gtd', 1)">
+                    <button class="action-btn" id="btn-x-1" onclick="handleVerifyClick('x1', 'https://x.com/aliendisclosur', 'btn-x-1')">Open @ALIENDISCLOSUR</button>
+                    <button class="action-btn" id="btn-x-2" onclick="handleVerifyClick('x2', 'https://x.com/nlnahal', 'btn-x-2')">Open @NLNAHAL</button>
+                    <div class="checkbox-area" onclick="toggleCheckbox('gtd-check-1')">
                         <input type="checkbox" id="gtd-check-1" style="pointer-events:none;">
                         <span>I am following both accounts</span>
                     </div>
-                    <button class="next-btn" id="gtd-next-1" onclick="nextStep('gtd', 2)">Next →</button>
+                    <button class="next-btn" id="gtd-next-1" onclick="nextStep(2)">Next →</button>
                 </div>
-
+                <!-- Steps 2, 3, 4, 5 follow same logic as original -->
                 <div class="step-container" id="gtd-step-2">
                     <h2 class="modal-title">Your X Handle</h2>
-                    <input type="text" id="gtd-input-handle" placeholder="@YourHandle" oninput="toggleNext('gtd', 2)">
-                    <button class="next-btn" id="gtd-next-2" onclick="nextStep('gtd', 3)">Next →</button>
+                    <input type="text" id="gtd-input-handle" placeholder="@YourHandle" oninput="validateInput(2)">
+                    <button class="next-btn" id="gtd-next-2" onclick="nextStep(3)">Next →</button>
                 </div>
-
                 <div class="step-container" id="gtd-step-3">
                     <h2 class="modal-title">Wallet Address</h2>
-                    <input type="text" id="gtd-input-wallet" placeholder="0x..." oninput="toggleNext('gtd', 3)">
-                    <button class="next-btn" id="gtd-next-3" onclick="nextStep('gtd', 4)">Next →</button>
+                    <input type="text" id="gtd-input-wallet" placeholder="0x..." oninput="validateInput(3)">
+                    <button class="next-btn" id="gtd-next-3" onclick="nextStep(4)">Next →</button>
                 </div>
-
                 <div class="step-container" id="gtd-step-4">
                     <h2 class="modal-title">Quote the Tweet</h2>
-                    <button class="action-btn" id="btn-quote" onclick="handleVerifyClick('q1', 'https://x.com/aliendisclosur', 'btn-quote')">Open Tweet to Quote</button>
-                    <input type="text" id="gtd-input-quote" placeholder="Paste Quote Link" oninput="toggleNext('gtd', 4)">
-                    <button class="next-btn" id="gtd-next-4" onclick="nextStep('gtd', 5)">Next →</button>
+                    <button class="action-btn" id="btn-quote" onclick="handleVerifyClick('q1', 'https://x.com/i/status/2037999719868481536', 'btn-quote')">Open Tweet to Quote</button>
+                    <input type="text" id="gtd-input-quote" placeholder="Paste link here" oninput="validateInput(4)">
+                    <button class="next-btn" id="gtd-next-4" onclick="nextStep(5)">Next →</button>
                 </div>
-
                 <div class="step-container" id="gtd-step-5">
                     <h2 class="modal-title">Reply with Wallet</h2>
-                    <button class="action-btn" id="btn-reply" onclick="handleVerifyClick('r1', 'https://x.com/aliendisclosur', 'btn-reply')">Open Tweet to Reply</button>
-                    <input type="text" id="gtd-input-reply" placeholder="Paste Reply Link" oninput="toggleNext('gtd', 5)">
-                    <button class="next-btn" id="gtd-next-5" onclick="submitData()">Submit Application</button>
+                    <button class="action-btn" id="btn-reply" onclick="handleVerifyClick('r1', 'https://x.com/i/status/2037999719868481536', 'btn-reply')">Open Tweet to Reply</button>
+                    <input type="text" id="gtd-input-reply" placeholder="Paste link here" oninput="validateInput(5)">
+                    <button class="next-btn" id="gtd-next-5" onclick="submitToSheet()">Submit Application</button>
                 </div>
             </div>
 
             <div id="successStep" class="step-container">
-                <div style="font-size: 50px; color: #00ff88; margin-bottom: 20px;">✔</div>
                 <h2 class="modal-title">Congratulations!</h2>
-                <p class="modal-desc">Your application has been received and stored. You are eligible for the Free Mint starting on 4th April, 14:00 UTC.[span_3](start_span)[span_3](end_span)</p>
-                <button class="footer-x-btn" onclick="window.location.reload()">Return to Portal</button>
+                <p class="modal-desc">You are officially registered for the mission. You can claim your FREE MINT on 4th April, 14:00 UTC.</p>
+                <button class="footer-x-btn" onclick="window.location.reload()">Great!</button>
             </div>
         </div>
     </div>
 
     <script>
-        // --- GOOGLE SHEET CONFIGURATION ---
-        // আপনার Google App Script-এর 'Web App URL' এখানে বসান[span_4](start_span)[span_4](end_span)
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbygQV-SgAMWdc12HM0-K4Qgs5fb_IBAK5CRjH8GvP6TvEsTDK2SpDxDTKSD6ObhUeeS/exec"; 
-
+        // --- CONFIGURATION ---
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbygWS0t2RHACJPgRgE_Np-0Be3j3nSX7NLb6xiEtULt4-_5mO25JtkI4wTNg01Igqo4/exec"; // এখানে আপনার গুগল অ্যাপ স্ক্রিপ্ট ইউআরএল দিন
+        const MINT_DATE = new Date("April 4, 2026 14:00:00 UTC").getTime();
         let verificationTracker = {};
+
+        // Countdown Timer
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = MINT_DATE - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
 
         function openModal(type) {
             document.getElementById('applicationModal').style.display = 'flex';
             const dots = document.getElementById('stepDots');
             dots.innerHTML = '';
-            for(let i=1; i<=5; i++) {
-                dots.innerHTML += `<div class="step-dot ${i===1?'active':''}" id="dot-${i}">${i}</div>`;
-            }
+            for(let i=1; i<=5; i++) dots.innerHTML += `<div class="step-dot ${i===1?'active':''}" id="dot-${i}">${i}</div>`;
         }
 
         function handleVerifyClick(id, url, btnId) {
             window.open(url, '_blank');
             verificationTracker[id] = true;
             document.getElementById(btnId).classList.add('clicked');
-            document.getElementById(btnId).innerText += " (Verified)";
+            validateInput(1);
         }
 
-        function toggleCheckbox(checkId, type, step) {
-            const check = document.getElementById(checkId);
+        function toggleCheckbox(id) {
             if(verificationTracker['x1'] && verificationTracker['x2']) {
-                check.checked = !check.checked;
-                toggleNext(type, step);
-            } else { alert("Please open both X accounts first!"); }
+                document.getElementById(id).checked = !document.getElementById(id).checked;
+                validateInput(1);
+            } else { alert("Please follow both accounts first!"); }
         }
 
-        function toggleNext(type, step) {
-            const btn = document.getElementById(`${type}-next-${step}`);
-            let isValid = false;
-            if(step === 1) isValid = document.getElementById('gtd-check-1').checked;
-            if(step === 2) isValid = document.getElementById('gtd-input-handle').value.length > 2;
-            if(step === 3) isValid = document.getElementById('gtd-input-wallet').value.length > 20;
-            if(step === 4) isValid = document.getElementById('gtd-input-quote').value.includes('x.com');
-            if(step === 5) isValid = document.getElementById('gtd-input-reply').value.includes('x.com');
-
-            if(isValid) btn.classList.add('enabled');
-            else btn.classList.remove('enabled');
+        function validateInput(step) {
+            const btn = document.getElementById(`gtd-next-${step}`);
+            let valid = false;
+            if(step === 1) valid = document.getElementById('gtd-check-1').checked;
+            if(step === 2) valid = document.getElementById('gtd-input-handle').value.length > 3;
+            if(step === 3) valid = document.getElementById('gtd-input-wallet').value.length > 20;
+            if(step === 4) valid = document.getElementById('gtd-input-quote').value.includes('x.com');
+            if(step === 5) valid = document.getElementById('gtd-input-reply').value.includes('x.com');
+            
+            if(valid) btn.classList.add('enabled'); else btn.classList.remove('enabled');
         }
 
-        function nextStep(type, next) {
-            const current = next - 1;
-            if(!document.getElementById(`${type}-next-${current}`).classList.contains('enabled')) return;
-            document.getElementById(`${type}-step-${current}`).classList.remove('active');
-            document.getElementById(`${type}-step-${next}`).classList.add('active');
-            document.getElementById(`dot-${current}`).classList.add('completed');
+        function nextStep(next) {
+            if(!document.getElementById(`gtd-next-${next-1}`).classList.contains('enabled')) return;
+            document.querySelectorAll('.step-container').forEach(s => s.classList.remove('active'));
+            document.getElementById(`gtd-step-${next}`).classList.add('active');
+            document.getElementById(`dot-${next-1}`).classList.add('completed');
             document.getElementById(`dot-${next}`).classList.add('active');
         }
 
-        function submitData() {
+        function submitToSheet() {
             const btn = document.getElementById('gtd-next-5');
-            btn.innerText = "SENDING TO SHEET...";
+            btn.innerText = "Transmitting...";
             
             const data = {
                 handle: document.getElementById('gtd-input-handle').value,
                 wallet: document.getElementById('gtd-input-wallet').value,
                 quote: document.getElementById('gtd-input-quote').value,
                 reply: document.getElementById('gtd-input-reply').value,
-                timestamp: new Date().toLocaleString()
+                date: new Date().toLocaleString()
             };
 
             fetch(SCRIPT_URL, {
@@ -268,20 +255,8 @@
                 document.getElementById('gtdSteps').style.display = 'none';
                 document.getElementById('stepDots').style.display = 'none';
                 document.getElementById('successStep').classList.add('active');
-            }).catch(e => alert("Error submitting data. Please check SCRIPT_URL."));
+            }).catch(() => alert("Signal lost. Please try again."));
         }
-
-        // --- COUNTDOW TIMER (4 April 14:00 UTC) ---
-        const mintDate = new Date("April 4, 2026 14:00:00 UTC").getTime();
-        setInterval(function() {
-            const now = new Date().getTime();
-            const dist = mintDate - now;
-            const d = Math.floor(dist / (1000 * 60 * 60 * 24));
-            const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((dist % (1000 * 60)) / 1000);
-            document.getElementById("countdown").innerHTML = d + "d " + h + "h " + m + "m " + s + "s ";
-        }, 1000);
     </script>
 </body>
 </html>
